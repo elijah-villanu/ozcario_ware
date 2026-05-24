@@ -51,4 +51,3 @@ func _on_entry_returned_to_rest() -> void:
 	# Envoke cooldown before calling the next entry
 	await get_tree().create_timer(randf_range(cooldown_min, cooldown_max)).timeout
 	choose_entry()
-	
