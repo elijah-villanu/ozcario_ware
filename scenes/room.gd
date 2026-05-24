@@ -9,6 +9,8 @@ extends Node2D
 var has_lost: bool = false
 
 func _ready() -> void:
+	# Reset lost state (needed for replaying)
+	has_lost = false
 	mommy_manager.entry_became_active.connect(_on_entry_became_active)
 	minigame_screen.screen_state_changed.connect(_on_screen_state_changed)
 

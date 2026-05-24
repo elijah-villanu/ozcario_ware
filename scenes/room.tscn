@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://cbk7pnlwbox0a"]
+[gd_scene format=3 uid="uid://unhrmxw2w4tn"]
 
 [ext_resource type="Script" uid="uid://fksxjcw1ein4" path="res://scenes/room.gd" id="1_14vil"]
 [ext_resource type="Script" uid="uid://dc4fo7rxngd0c" path="res://scenes/mommy_manager.gd" id="2_jxe34"]
 [ext_resource type="PackedScene" uid="uid://ruoxlfv1tyy5" path="res://scenes/entry.tscn" id="3_jn645"]
-[ext_resource type="PackedScene" uid="uid://ba7iofwcneklo" path="res://scenes/minigame_screen.tscn" id="4_qvc4m"]
+[ext_resource type="PackedScene" uid="uid://dne0hp0vm7enm" path="res://scenes/minigame_screen.tscn" id="4_qvc4m"]
 
 [node name="Room" type="Node2D" unique_id=1723554964]
 script = ExtResource("1_14vil")

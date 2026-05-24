@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ozcario_ware"
-run/main_scene="uid://cbk7pnlwbox0a"
+run/main_scene="uid://bb3vgkgfqemi"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -39,3 +39,4 @@ hide={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
