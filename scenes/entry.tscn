@@ -1,3 +1,16 @@
 [gd_scene format=3 uid="uid://ruoxlfv1tyy5"]
 
+[ext_resource type="Script" uid="uid://c02fdrc6ldald" path="res://scenes/entry.gd" id="1_ycj4g"]
+
 [node name="Entry" type="Node2D" unique_id=1289154615]
+script = ExtResource("1_ycj4g")
+
+[node name="InProgressTimer" type="Timer" parent="." unique_id=1600920683]
+
+[node name="ActiveTimer" type="Timer" parent="." unique_id=1522627894]
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1970385349]
+polygon = PackedVector2Array(0, 0, 0, 0, 2, 0, 2, -2, 0, -2)
+
+[connection signal="timeout" from="InProgressTimer" to="." method="_on_in_progress_timer_timeout"]
+[connection signal="timeout" from="ActiveTimer" to="." method="_on_active_timer_timeout"]
