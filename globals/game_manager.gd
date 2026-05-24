@@ -1,5 +1,8 @@
 extends Node
 
-# Pulls up game over menu
 func trigger_lose_condition() -> void:
-	print("GAME OVER!")
+	# Pause the game in the background
+	get_tree().paused
+	# Pulls up game over menu
+	get_tree().change_scene_to_file("res://scenes/menus/game_over.tscn")
+	
