@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://4gydvo63f8nx"]
+
+[ext_resource type="AudioStream" uid="uid://cudh6ea47m65k" path="res://assets/audio/Active.ogg" id="1_exsf0"]
+[ext_resource type="Script" uid="uid://xwa0ru70a023" path="res://globals/audio_manager.gd" id="1_hilj8"]
+[ext_resource type="AudioStream" uid="uid://oltbsx5jpkku" path="res://assets/audio/ambience.ogg" id="2_3uslp"]
+
+[node name="AudioManager" type="Node2D" unique_id=193931469]
+script = ExtResource("1_hilj8")
+
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=354126457]
+stream = ExtResource("2_3uslp")
+volume_db = -2.929
+autoplay = true
+parameters/looping = true
+
+[node name="ActiveSFX" type="AudioStreamPlayer" parent="." unique_id=246385756]
+stream = ExtResource("1_exsf0")
+volume_db = -8.0
