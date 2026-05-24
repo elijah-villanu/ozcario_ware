@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dt56gotpat458" path="res://scenes/minigames/swatting.gd" id="1_gjvv2"]
 [ext_resource type="Texture2D" uid="uid://bj5w1ohvaikgh" path="res://assets/leaf_stem.png" id="1_swptm"]
 [ext_resource type="PackedScene" uid="uid://ds7hb0cy3jeht" path="res://scenes/minigames/Leaf.tscn" id="3_q5i56"]
+[ext_resource type="Texture2D" uid="uid://bopeol812w0hb" path="res://assets/hand.png" id="4_6bhv4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gjvv2"]
 atlas = ExtResource("1_swptm")
@@ -31,3 +32,20 @@ flip_h = true
 [node name="Leaf4" parent="." unique_id=642990198 instance=ExtResource("3_q5i56")]
 position = Vector2(11, -12)
 flip_h = true
+
+[node name="r_Hand" type="Sprite2D" parent="." unique_id=353188074]
+position = Vector2(40, 21)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_6bhv4")
+
+[node name="l_Hand" type="Sprite2D" parent="." unique_id=1056552643]
+position = Vector2(-43, 21)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_6bhv4")
+
+[node name="l_timer" type="Timer" parent="." unique_id=1793537160]
+
+[node name="r_timer" type="Timer" parent="." unique_id=397891393]
+
+[connection signal="timeout" from="l_timer" to="." method="_on_l_timer_timeout"]
+[connection signal="timeout" from="r_timer" to="." method="_on_r_timer_timeout"]

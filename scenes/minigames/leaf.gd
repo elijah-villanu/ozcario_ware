@@ -22,7 +22,7 @@ enum STATE {HEALTHY,BIT,DAMAGED,GONE}
 
 const spawn_min = 3
 const spawn_max = 8
-const seconds_per_tick = 0.3
+const seconds_per_tick = 1
 
 var ticks = 0
 var time_past = 0
@@ -59,12 +59,6 @@ func _process(delta: float) -> void:
 			spawn_bug()
 	
 	time_past += delta
-
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("hide"):
-		remove_bug()
-		print("removing bug")
 
 func change_state():
 	if state == STATE.HEALTHY and health <= 66:
@@ -118,20 +112,22 @@ func spawn_bug():
 	
 func remove_bug():
 	for child in get_children():
+		var res = child.global_position
 		if child.is_in_group("beetle"):
 			bug_count-=1
 			spawns.push_back(child.position)
 			child.queue_free()
-			return
+			return res
 		elif not child.is_in_group("bee") and child.is_in_group("bugs"):
 			bug_count -=2
 			spawns.push_back(child.position)
 			child.queue_free()
-			return
+			return res
 	for child in get_children():
+		var res = child.global_position
 		if child.is_in_group("bee"):
 			spawns.push_back(child.position)
 			child.queue_free()
 			emit_signal("bee_sting")
-			return
-		
+			return res
+	return Vector2(10000,10000)
