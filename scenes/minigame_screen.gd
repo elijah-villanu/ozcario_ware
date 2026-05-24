@@ -1,5 +1,8 @@
 extends Sprite2D
 
+# Background music
+@onready var bg_music : AudioStreamPlayer = $InGameMusic
+
 # State machine for when the device is out or hidden
 enum ScreenState {
 	UNHIDDEN,
@@ -16,6 +19,8 @@ func _ready() -> void:
 	# Set initial state 
 	state = ScreenState.HIDDEN
 	self.visible = false
+	bg_music.stream_paused = true
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("hide"):
@@ -33,6 +38,7 @@ func set_screen_state(new_state: ScreenState) -> void:
 	
 	state = new_state
 	self.visible = state == ScreenState.UNHIDDEN
+	bg_music.stream_paused = state != ScreenState.UNHIDDEN
 	
 	screen_state_changed.emit(state)
 

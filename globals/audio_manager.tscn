@@ -9,7 +9,7 @@ script = ExtResource("1_hilj8")
 
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=354126457]
 stream = ExtResource("2_3uslp")
-volume_db = -2.929
+volume_db = -3.705
 autoplay = true
 parameters/looping = true
 
