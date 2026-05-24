@@ -4,6 +4,9 @@ extends Node2D
 @onready var in_progress_timer : Timer = $InProgressTimer
 @onready var active_timer : Timer = $ActiveTimer
 
+# Signal to tell manager the entry has switched to rest
+signal returned_to_rest
+
 enum EntryState {
 	REST,
 	IN_PROGRESS,
@@ -32,3 +35,5 @@ func _on_in_progress_timer_timeout() -> void:
 
 func _on_active_timer_timeout() -> void:
 	state = EntryState.REST
+	color_polygon.modulate = Color(1, 1, 1, 1)
+	returned_to_rest.emit()

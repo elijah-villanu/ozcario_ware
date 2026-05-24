@@ -9,9 +9,19 @@
 script = ExtResource("1_pw63i")
 
 [node name="Entry" parent="MommyManager" unique_id=1289154615 instance=ExtResource("2_7ykc4")]
+position = Vector2(-347, -77)
+scale = Vector2(100, 100)
 
 [node name="Entry2" parent="MommyManager" unique_id=281864406 instance=ExtResource("2_7ykc4")]
+position = Vector2(135, -78)
+scale = Vector2(100, 100)
 
 [node name="Entry3" parent="MommyManager" unique_id=1371570023 instance=ExtResource("2_7ykc4")]
+position = Vector2(128, 243)
+scale = Vector2(100, 100)
 
 [node name="Entry4" parent="MommyManager" unique_id=190109242 instance=ExtResource("2_7ykc4")]
+position = Vector2(-346, 239)
+scale = Vector2(100, 100)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1782745718]
