@@ -9,8 +9,10 @@ var all_entries : Dictionary
 
 var waiting_to_choose_entry : bool = false
 
-const cooldown_min : float = 1.0
-const cooldown_max : float = 4.0
+const cooldown_min : float = 4.0
+const cooldown_max : float = 9.0
+# Time at the beginning of game to wait until first appearance
+const initial_wait : float = 15.0
 
 # Signal used for room.gd to check the two states
 signal entry_became_active
@@ -27,7 +29,10 @@ func _ready() -> void:
 	for entry in all_entries.values():
 		entry.returned_to_rest.connect(_on_entry_returned_to_rest)
 		entry.became_active.connect(_on_entry_became_active)
-		
+	
+	# minimum initial wait time until first appearance, longer than cooldown
+	await get_tree().create_timer(initial_wait).timeout
+	
 	# Initial entry
 	choose_entry()
 
