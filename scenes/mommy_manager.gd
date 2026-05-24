@@ -12,6 +12,9 @@ var waiting_to_choose_entry : bool = false
 const cooldown_min : float = 1.0
 const cooldown_max : float = 4.0
 
+# Signal used for room.gd to check the two states
+signal entry_became_active
+
 func _ready() -> void:
 	all_entries = {
 		"window" : window,
@@ -23,6 +26,7 @@ func _ready() -> void:
 	# Connect returned to rest signal to each entry
 	for entry in all_entries.values():
 		entry.returned_to_rest.connect(_on_entry_returned_to_rest)
+		entry.became_active.connect(_on_entry_became_active)
 		
 	# Initial entry
 	choose_entry()
@@ -39,7 +43,7 @@ func choose_entry() -> void:
 	if chosen_entry:
 		chosen_entry.activate()
 
-# Returns true if any entries are currently active
+# Returns true if any entries are currently active OR in progress
 func has_active_entry() -> bool:
 	for entry in all_entries.values():
 		if entry:
@@ -47,7 +51,19 @@ func has_active_entry() -> bool:
 				return true
 	return false
 
+# Returns true if any entries are currently active ONLY
+func has_active_entry_only() -> bool:
+	for entry in all_entries.values():
+		if entry and entry.state == entry.EntryState.ACTIVE:
+			return true
+	return false
+
+# Runs when the active entry goes back 
 func _on_entry_returned_to_rest() -> void:
 	# Envoke cooldown before calling the next entry
 	await get_tree().create_timer(randf_range(cooldown_min, cooldown_max)).timeout
 	choose_entry()
+
+# Runs when any entry goes active, tells room.gd
+func _on_entry_became_active() -> void:
+	entry_became_active.emit()
