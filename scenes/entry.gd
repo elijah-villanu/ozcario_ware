@@ -9,6 +9,9 @@ signal returned_to_rest
 # Signal to tell manager this entry is active
 signal became_active
 
+var in_progress_duration : float
+var active_duration : float
+
 enum EntryState {
 	REST,
 	IN_PROGRESS,
@@ -27,6 +30,13 @@ func _ready() -> void:
 # Switch to in-progress state
 func activate() -> void:
 	state = EntryState.IN_PROGRESS
+	
+	# Set timer times
+	in_progress_duration = randf_range(0.25, 3.0)
+	active_duration = randf_range(1.0, 2.0)
+	in_progress_timer.wait_time = in_progress_duration
+	active_timer.wait_time = active_duration
+	
 	in_progress_timer.start()
 	# Change to yellow
 	color_polygon.modulate = Color(1, 1, 0, 1)
