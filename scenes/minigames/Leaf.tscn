@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://ds7hb0cy3jeht"]
+
+[ext_resource type="Texture2D" uid="uid://bj5w1ohvaikgh" path="res://assets/leaf_stem.png" id="1_7jqh5"]
+[ext_resource type="Script" uid="uid://ru08crkvj0c8" path="res://scenes/minigames/leaf.gd" id="1_q0ng4"]
+[ext_resource type="Texture2D" uid="uid://cqbi6tcr0iql" path="res://assets/Snail_000 Spritesheet.png" id="3_nfcka"]
+[ext_resource type="Texture2D" uid="uid://cibrus0h775il" path="res://assets/Bee Spritesheet.png" id="3_vymjq"]
+[ext_resource type="Texture2D" uid="uid://u7ftcuqsqpkd" path="res://assets/Beetle_000 Spritesheet.png" id="4_vymjq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0ng4"]
+atlas = ExtResource("1_7jqh5")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_017em"]
+atlas = ExtResource("1_7jqh5")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfcka"]
+atlas = ExtResource("1_7jqh5")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vymjq"]
+atlas = ExtResource("1_7jqh5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2l6p5"]
+atlas = ExtResource("3_vymjq")
+region = Rect2(24, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkcpx"]
+atlas = ExtResource("3_vymjq")
+region = Rect2(16, 8, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xp1ve"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2l6p5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkcpx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2i40b"]
+atlas = ExtResource("3_nfcka")
+region = Rect2(16, 16, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv1ur"]
+atlas = ExtResource("3_nfcka")
+region = Rect2(24, 16, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c17n3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2i40b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uv1ur")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ct0i"]
+atlas = ExtResource("4_vymjq")
+region = Rect2(16, 24, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vi7nh"]
+atlas = ExtResource("4_vymjq")
+region = Rect2(24, 24, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k6itq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ct0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vi7nh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Leaf" type="Node2D" unique_id=1162388745]
+script = ExtResource("1_q0ng4")
+
+[node name="Healthy" type="Sprite2D" parent="." unique_id=409385109]
+texture = SubResource("AtlasTexture_q0ng4")
+
+[node name="Bit" type="Sprite2D" parent="." unique_id=2144364448]
+texture = SubResource("AtlasTexture_017em")
+
+[node name="Half" type="Sprite2D" parent="." unique_id=558552090]
+texture = SubResource("AtlasTexture_nfcka")
+
+[node name="Gone" type="Sprite2D" parent="." unique_id=939989828]
+texture = SubResource("AtlasTexture_vymjq")
+
+[node name="Bee" type="AnimatedSprite2D" parent="." unique_id=857729980]
+visible = false
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_xp1ve")
+
+[node name="Snail" type="AnimatedSprite2D" parent="." unique_id=2347802]
+visible = false
+position = Vector2(-6, 1)
+sprite_frames = SubResource("SpriteFrames_c17n3")
+frame = 1
+frame_progress = 0.03035201
+
+[node name="Beetle" type="AnimatedSprite2D" parent="." unique_id=971107499]
+visible = false
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_k6itq")
+
+[node name="spawn1" type="Marker2D" parent="." unique_id=1264518756]
+position = Vector2(5, 2)
+
+[node name="spawn2" type="Marker2D" parent="." unique_id=1982465270]
+position = Vector2(-5, 3)
+
+[node name="spawn3" type="Marker2D" parent="." unique_id=1812902439]
+position = Vector2(0, -4)

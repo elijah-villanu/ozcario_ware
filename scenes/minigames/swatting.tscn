@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cran323f7svjx"]
+
+[ext_resource type="Script" uid="uid://dt56gotpat458" path="res://scenes/minigames/swatting.gd" id="1_gjvv2"]
+[ext_resource type="Texture2D" uid="uid://bj5w1ohvaikgh" path="res://assets/leaf_stem.png" id="1_swptm"]
+[ext_resource type="PackedScene" uid="uid://ds7hb0cy3jeht" path="res://scenes/minigames/Leaf.tscn" id="3_q5i56"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjvv2"]
+atlas = ExtResource("1_swptm")
+region = Rect2(16, 0, 32, 64)
+
+[node name="Swatting" type="Node2D" unique_id=1059576586]
+script = ExtResource("1_gjvv2")
+
+[node name="Stem" type="Sprite2D" parent="." unique_id=166260471]
+texture_filter = 1
+texture = SubResource("AtlasTexture_gjvv2")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1553099532]
+zoom = Vector2(17, 17)
+
+[node name="Leaf" parent="." unique_id=1162388745 instance=ExtResource("3_q5i56")]
+position = Vector2(-15, -21)
+
+[node name="Leaf2" parent="." unique_id=1419698708 instance=ExtResource("3_q5i56")]
+position = Vector2(-13, 7)
+
+[node name="Leaf3" parent="." unique_id=118189121 instance=ExtResource("3_q5i56")]
+position = Vector2(12, 16)
+flip_h = true
+
+[node name="Leaf4" parent="." unique_id=642990198 instance=ExtResource("3_q5i56")]
+position = Vector2(11, -12)
+flip_h = true
