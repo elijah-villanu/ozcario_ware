@@ -3,14 +3,17 @@ extends Node2D
 @onready var color_polygon : Polygon2D = $Polygon2D # TEMP UNTIL WE GET THE TEXTURE
 @onready var in_progress_timer : Timer = $InProgressTimer
 @onready var active_timer : Timer = $ActiveTimer
+@onready var in_progress_sfx : AudioStreamPlayer = $InProgressSFX
 
 # Signal to tell manager this entry has switched to rest
 signal returned_to_rest
 # Signal to tell manager this entry is active
 signal became_active
 
-var in_progress_duration : float
-var active_duration : float
+var in_progress_min : float = 1.0
+var in_progress_max : float = 4.0
+var active_min : float = 2.0
+var active_max : float = 3.0
 
 enum EntryState {
 	REST,
@@ -32,14 +35,14 @@ func activate() -> void:
 	state = EntryState.IN_PROGRESS
 	
 	# Set timer times
-	in_progress_duration = randf_range(0.25, 3.0)
-	active_duration = randf_range(1.0, 2.0)
-	in_progress_timer.wait_time = in_progress_duration
-	active_timer.wait_time = active_duration
+	in_progress_timer.wait_time = randf_range(in_progress_min, in_progress_max)
+	active_timer.wait_time = randf_range(active_min, active_max)
 	
 	in_progress_timer.start()
 	# Change to yellow
 	color_polygon.modulate = Color(1, 1, 0, 1)
+	# Play progress sfx
+	in_progress_sfx.play()
 
 # Switch to active state
 func _on_in_progress_timer_timeout() -> void:
@@ -48,8 +51,15 @@ func _on_in_progress_timer_timeout() -> void:
 	color_polygon.modulate = Color(1, 0, 0, 1)
 	became_active.emit()
 	
+	# Play active sfx
+	if in_progress_sfx.playing:
+		in_progress_sfx.stop()
+	# Active must be global
+	AudioManager.play_active_sfx()
+	
 # Switch to rest state
 func _on_active_timer_timeout() -> void:
 	state = EntryState.REST
 	color_polygon.modulate = Color(1, 1, 1, 1)
 	returned_to_rest.emit()
+	

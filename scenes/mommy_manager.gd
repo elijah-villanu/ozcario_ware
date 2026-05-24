@@ -12,7 +12,7 @@ var waiting_to_choose_entry : bool = false
 const cooldown_min : float = 4.0
 const cooldown_max : float = 9.0
 # Time at the beginning of game to wait until first appearance
-const initial_wait : float = 15.0
+const initial_wait : float = 9.0
 
 # Signal used for room.gd to check the two states
 signal entry_became_active
