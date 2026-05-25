@@ -51,5 +51,7 @@ texture = ExtResource("4_6bhv4")
 
 [node name="r_timer" type="Timer" parent="." unique_id=397891393]
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=242436862]
+
 [connection signal="timeout" from="l_timer" to="." method="_on_l_timer_timeout"]
 [connection signal="timeout" from="r_timer" to="." method="_on_r_timer_timeout"]

@@ -55,7 +55,7 @@ func _process(delta: float) -> void:
 		r_unlock()
 	
 	if leaf.health <= 0 and leaf_2.health <= 0 and leaf_3.health <= 0 and leaf_4.health <= 0:
-		GameManager.lose_msg = "IT DIED! 🥀"
+		GameManager.lose_msg = "IT DIED! :("
 		GameManager.trigger_lose_condition()
 
 func l_lockout():
