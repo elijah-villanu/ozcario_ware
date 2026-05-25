@@ -33,8 +33,10 @@ func _unhandled_input(event: InputEvent) -> void:
 func toggle_screen():
 	if state == ScreenState.UNHIDDEN:
 		set_screen_state(ScreenState.HIDDEN)
+		swatting.block_inp = true
 	else:
 		set_screen_state(ScreenState.UNHIDDEN)
+		swatting.block_inp = false
 
 func set_screen_state(new_state: ScreenState) -> void:
 	if state == new_state:

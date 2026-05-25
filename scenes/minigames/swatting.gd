@@ -22,6 +22,7 @@ var def_r
 
 var bugs_killed = 0
 const score_needed = 67
+var block_inp = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -38,9 +39,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if bugs_killed >= score_needed:
 		GameManager.trigger_win_condition()
-	if Input.is_action_just_pressed("primary") and not l_locked:
+	if Input.is_action_just_pressed("primary") and not l_locked and not block_inp:
 		check_left()
-	if Input.is_action_just_pressed("secondary") and not r_locked:
+	if Input.is_action_just_pressed("secondary") and not r_locked and not block_inp:
 		check_right()
 	
 	if l_locked:
