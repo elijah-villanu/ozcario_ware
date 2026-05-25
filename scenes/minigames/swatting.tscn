@@ -12,12 +12,15 @@ region = Rect2(16, 0, 32, 64)
 [node name="Swatting" type="Node2D" unique_id=1059576586]
 script = ExtResource("1_gjvv2")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2064676352]
+offset_left = -37.0
+offset_top = -33.0
+offset_right = 37.0
+offset_bottom = 32.0
+
 [node name="Stem" type="Sprite2D" parent="." unique_id=166260471]
 texture_filter = 1
 texture = SubResource("AtlasTexture_gjvv2")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1553099532]
-zoom = Vector2(17, 17)
 
 [node name="Leaf" parent="." unique_id=1162388745 instance=ExtResource("3_q5i56")]
 position = Vector2(-15, -21)
@@ -34,12 +37,12 @@ position = Vector2(11, -12)
 flip_h = true
 
 [node name="r_Hand" type="Sprite2D" parent="." unique_id=353188074]
-position = Vector2(40, 21)
+position = Vector2(25, 23)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_6bhv4")
 
 [node name="l_Hand" type="Sprite2D" parent="." unique_id=1056552643]
-position = Vector2(-43, 21)
+position = Vector2(-20, 23)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_6bhv4")
 

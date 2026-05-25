@@ -1,16 +1,39 @@
-[gd_scene format=3 uid="uid://dne0hp0vm7enm"]
+[gd_scene format=3 uid="uid://dyi6b7fl8rmtf"]
 
 [ext_resource type="Texture2D" uid="uid://coubj0hxs666c" path="res://assets/gb-new.png" id="1_0lpdq"]
 [ext_resource type="Script" uid="uid://lolxgyfb768p" path="res://scenes/minigame_screen.gd" id="2_0lpdq"]
+[ext_resource type="PackedScene" uid="uid://cran323f7svjx" path="res://scenes/minigames/swatting.tscn" id="2_vmndg"]
 [ext_resource type="AudioStream" uid="uid://dnq0nxcspkrf5" path="res://assets/audio/minigame.ogg" id="3_8bqlh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0lpdq"]
-atlas = ExtResource("1_0lpdq")
 region = Rect2(44.400024, 22.929276, 242.39996, 258.94568)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ripd"]
+atlas = ExtResource("1_0lpdq")
+region = Rect2(45, 22, 44, 375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ky2ni"]
+atlas = ExtResource("1_0lpdq")
+region = Rect2(45, 22, 242, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eexwy"]
+atlas = ExtResource("1_0lpdq")
+region = Rect2(45, 199, 242, 197)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yp5di"]
+atlas = ExtResource("1_0lpdq")
+region = Rect2(243, 22, 44, 375)
 
 [node name="MinigameScreen" type="Sprite2D" unique_id=1365734551]
 texture = SubResource("AtlasTexture_0lpdq")
 script = ExtResource("2_0lpdq")
+
+[node name="Swatting" parent="." unique_id=1059576586 instance=ExtResource("2_vmndg")]
+scale = Vector2(2.1714337, 2.1714337)
+
+[node name="Left" type="Sprite2D" parent="." unique_id=1697972885]
+position = Vector2(-98, 87.5)
+texture = SubResource("AtlasTexture_5ripd")
 
 [node name="InGameMusic" type="AudioStreamPlayer" parent="." unique_id=1747569789]
 stream = ExtResource("3_8bqlh")
@@ -18,4 +41,15 @@ volume_db = -15.014
 pitch_scale = 1.3
 autoplay = true
 mix_target = 2
-bus = &"Music"
+
+[node name="Top" type="Sprite2D" parent="." unique_id=1787359768]
+position = Vector2(12, -88.5)
+texture = SubResource("AtlasTexture_ky2ni")
+
+[node name="Bot" type="Sprite2D" parent="." unique_id=960500049]
+position = Vector2(1, 164.5)
+texture = SubResource("AtlasTexture_eexwy")
+
+[node name="Right" type="Sprite2D" parent="." unique_id=1493705861]
+position = Vector2(100, 76.5)
+texture = SubResource("AtlasTexture_yp5di")

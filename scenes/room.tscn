@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://unhrmxw2w4tn"]
 
-[ext_resource type="Script" path="res://scenes/room.gd" id="1_14vil"]
+[ext_resource type="Script" uid="uid://fksxjcw1ein4" path="res://scenes/room.gd" id="1_14vil"]
 [ext_resource type="Script" uid="uid://dc4fo7rxngd0c" path="res://scenes/mommy_manager.gd" id="2_jxe34"]
 [ext_resource type="PackedScene" uid="uid://ruoxlfv1tyy5" path="res://scenes/entry.tscn" id="3_jn645"]
-[ext_resource type="PackedScene" uid="uid://dne0hp0vm7enm" path="res://scenes/minigame_screen.tscn" id="4_qvc4m"]
+[ext_resource type="PackedScene" uid="uid://dyi6b7fl8rmtf" path="res://scenes/minigame_screen.tscn" id="5_jxe34"]
 
 [node name="Room" type="Node2D" unique_id=1723554964]
 script = ExtResource("1_14vil")
@@ -27,8 +27,7 @@ scale = Vector2(100, 100)
 position = Vector2(-928, -40)
 scale = Vector2(100, 100)
 
-[node name="MinigameScreen" parent="." unique_id=406268312 instance=ExtResource("4_qvc4m")]
-position = Vector2(12.0000305, 71)
-scale = Vector2(3.7396693, 3.7396696)
+[node name="MinigameScreen" parent="." unique_id=1365734551 instance=ExtResource("5_jxe34")]
+scale = Vector2(3.74, 3.74)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1782745718]
