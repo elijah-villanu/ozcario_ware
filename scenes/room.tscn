@@ -5,6 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://ruoxlfv1tyy5" path="res://scenes/entry.tscn" id="3_jn645"]
 [ext_resource type="PackedScene" uid="uid://dyi6b7fl8rmtf" path="res://scenes/minigame_screen.tscn" id="5_jxe34"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_14vil"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
 [node name="Room" type="Node2D" unique_id=1723554964]
 script = ExtResource("1_14vil")
 
@@ -31,3 +35,13 @@ scale = Vector2(150, 150)
 scale = Vector2(3.74, 3.74)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1782745718]
+
+[node name="score" type="Label" parent="." unique_id=493576267]
+offset_left = 165.0
+offset_top = -243.0
+offset_right = 278.0
+offset_bottom = -174.0
+text = "x100"
+label_settings = SubResource("LabelSettings_14vil")
+
+[editable path="MinigameScreen"]

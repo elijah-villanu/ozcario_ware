@@ -1,5 +1,7 @@
 extends Node
 
+var lose_msg = "GO TO BED."
+
 func trigger_lose_condition() -> void:
 	# Pause the game in the background
 	# get_tree().paused 

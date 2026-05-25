@@ -20,6 +20,9 @@ const timeout = 5
 var def_l
 var def_r
 
+var bugs_killed = 0
+const score_needed = 67
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	leaf.bee_sting.connect(l_lockout)
@@ -33,6 +36,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if bugs_killed >= score_needed:
+		GameManager.lose_msg = "Worth it?"
+		GameManager.trigger_lose_condition()
 	if Input.is_action_just_pressed("primary") and not l_locked:
 		check_left()
 	if Input.is_action_just_pressed("secondary") and not r_locked:
@@ -47,15 +53,21 @@ func _process(delta: float) -> void:
 		l_unlock()
 	if r_time >= timeout:
 		r_unlock()
-
+	
+	if leaf.health <= 0 and leaf_2.health <= 0 and leaf_3.health <= 0 and leaf_4.health <= 0:
+		GameManager.lose_msg = "IT DIED! 🥀"
+		GameManager.trigger_lose_condition()
 
 func l_lockout():
 	l_locked = true
 	l_hand.modulate = Color("red")
+	bugs_killed -= 1
+	
 
 func r_lockout():
 	r_locked = true
 	r_hand.modulate = Color("red")
+	bugs_killed -= 1
 
 func l_unlock():
 	l_locked = false
@@ -78,6 +90,7 @@ func check_left():
 	if ret != Vector2(10000,10000):
 		l_hand.global_position = ret
 		l_timer.start(1)
+		bugs_killed +=1
 
 func check_right():
 	var ret = Vector2(10000,10000)
@@ -90,6 +103,7 @@ func check_right():
 	if ret != Vector2(10000,10000):
 		r_hand.global_position = ret
 		r_timer.start(1)
+		bugs_killed +=1
 	
 func _on_l_timer_timeout() -> void:
 	l_hand.global_position = def_l

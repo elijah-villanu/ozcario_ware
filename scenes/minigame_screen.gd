@@ -2,6 +2,8 @@ extends Sprite2D
 
 # Background music
 @onready var bg_music : AudioStreamPlayer = $InGameMusic
+@onready var score: Label = $"../score"
+@onready var swatting: Node2D = $Swatting
 
 # State machine for when the device is out or hidden
 enum ScreenState {
@@ -20,7 +22,9 @@ func _ready() -> void:
 	state = ScreenState.HIDDEN
 	self.visible = false
 	bg_music.stream_paused = true
-	
+
+func _process(_delta):
+	score.text = "x"+str(swatting.score_needed - swatting.bugs_killed)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("hide"):

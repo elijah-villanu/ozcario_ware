@@ -10,6 +10,7 @@ atlas = ExtResource("1_swptm")
 region = Rect2(16, 0, 32, 64)
 
 [node name="Swatting" type="Node2D" unique_id=1059576586]
+texture_filter = 1
 script = ExtResource("1_gjvv2")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2064676352]

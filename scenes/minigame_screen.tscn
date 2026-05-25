@@ -5,9 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://cran323f7svjx" path="res://scenes/minigames/swatting.tscn" id="2_vmndg"]
 [ext_resource type="AudioStream" uid="uid://dnq0nxcspkrf5" path="res://assets/audio/minigame.ogg" id="3_8bqlh"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0lpdq"]
-region = Rect2(44.400024, 22.929276, 242.39996, 258.94568)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ripd"]
 atlas = ExtResource("1_0lpdq")
 region = Rect2(45, 22, 44, 375)
@@ -25,7 +22,6 @@ atlas = ExtResource("1_0lpdq")
 region = Rect2(243, 22, 44, 375)
 
 [node name="MinigameScreen" type="Sprite2D" unique_id=1365734551]
-texture = SubResource("AtlasTexture_0lpdq")
 script = ExtResource("2_0lpdq")
 
 [node name="Swatting" parent="." unique_id=1059576586 instance=ExtResource("2_vmndg")]

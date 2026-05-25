@@ -1,7 +1,11 @@
 extends Control
 
+@onready var label: Label = $Label
+
 # Responsible for sending the player to either room or start menu scene
 
+func _ready():
+	label.text = GameManager.lose_msg
 
 func _on_retry_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/room.tscn")
