@@ -22,7 +22,7 @@ enum STATE {HEALTHY,BIT,DAMAGED,GONE}
 
 const spawn_min = 3
 const spawn_max = 8
-const seconds_per_tick = 1
+const seconds_per_tick = 0.7
 
 var ticks = 0
 var time_past = 0
@@ -57,6 +57,9 @@ func _process(delta: float) -> void:
 			spawn_bug()
 		elif ticks % randi_range(spawn_min, spawn_max) == 0:
 			spawn_bug()
+		
+		if randi_range(0,5) == 4:
+			despawn_bee()
 	
 	time_past += delta
 
@@ -109,7 +112,14 @@ func spawn_bug():
 			print("nothing found")
 	var spawn_index = randi_range(0,len(spawns)-1)
 	new_bug.position = spawns.pop_at(spawn_index)
-	
+
+func despawn_bee():
+	for child in get_children():
+		if child.is_in_group("bee"):
+			spawns.push_back(child.position)
+			child.queue_free()
+			return
+
 func remove_bug():
 	for child in get_children():
 		var res = child.global_position
