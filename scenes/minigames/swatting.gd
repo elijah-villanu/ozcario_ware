@@ -37,8 +37,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if bugs_killed >= score_needed:
-		GameManager.lose_msg = "Worth it?"
-		GameManager.trigger_lose_condition()
+		GameManager.trigger_win_condition()
 	if Input.is_action_just_pressed("primary") and not l_locked:
 		check_left()
 	if Input.is_action_just_pressed("secondary") and not r_locked:

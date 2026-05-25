@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://dvedew8m0aem7"]
+[gd_scene format=3 uid="uid://3gsjsrnfystv"]
 
-[ext_resource type="Script" uid="uid://sqwer6b456bp" path="res://scenes/menus/win_game.gd" id="1_is6u7"]
+[ext_resource type="Script" path="res://scenes/menus/win_game.gd" id="1_is6u7"]
 
 [node name="WinGame" type="Control" unique_id=1099545900]
 layout_mode = 3
