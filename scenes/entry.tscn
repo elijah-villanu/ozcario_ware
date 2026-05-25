@@ -1,7 +1,15 @@
 [gd_scene format=3 uid="uid://ruoxlfv1tyy5"]
 
 [ext_resource type="Script" uid="uid://c02fdrc6ldald" path="res://scenes/entry.gd" id="1_ycj4g"]
+[ext_resource type="Texture2D" uid="uid://bb0vpmiap5jfp" path="res://assets/female-icon-7881.png" id="2_0tyro"]
 [ext_resource type="AudioStream" uid="uid://csrkecl7opxse" path="res://assets/audio/InProgress.ogg" id="2_5go5w"]
+[ext_resource type="Texture2D" uid="uid://8hcgum14of6x" path="res://assets/window.png" id="2_xkqy0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hun0w"]
+atlas = ExtResource("2_0tyro")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tyro"]
+atlas = ExtResource("2_xkqy0")
 
 [node name="Entry" type="Node2D" unique_id=1289154615]
 script = ExtResource("1_ycj4g")
@@ -14,6 +22,16 @@ one_shot = true
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=1970385349]
 polygon = PackedVector2Array(0, 0, 0, 0, 2, 0, 2, -2, 0, -2)
+
+[node name="Mom" type="Sprite2D" parent="." unique_id=1001949039]
+position = Vector2(1, -0.7)
+scale = Vector2(0.010937504, 0.010937504)
+texture = SubResource("AtlasTexture_hun0w")
+
+[node name="Window" type="Sprite2D" parent="." unique_id=2051890659]
+position = Vector2(1, -1)
+scale = Vector2(0.044999998, 0.044999998)
+texture = SubResource("AtlasTexture_0tyro")
 
 [node name="InProgressSFX" type="AudioStreamPlayer" parent="." unique_id=1817984768]
 stream = ExtResource("2_5go5w")

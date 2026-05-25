@@ -4,6 +4,8 @@ extends Node2D
 @onready var in_progress_timer : Timer = $InProgressTimer
 @onready var active_timer : Timer = $ActiveTimer
 @onready var in_progress_sfx : AudioStreamPlayer = $InProgressSFX
+@onready var mom_sprite : Sprite2D = $Mom
+@onready var window_sprite : Sprite2D = $Window
 
 # Signal to tell manager this entry has switched to rest
 signal returned_to_rest
@@ -24,7 +26,8 @@ var state : EntryState
 
 func _ready() -> void:
 	if color_polygon:
-		color_polygon.modulate = Color(1, 1, 1, 1)
+		color_polygon.modulate = Color(0.01, 0.01, 0.3, 1)
+	mom_sprite.modulate.a = 0
 	# Initially start at rest
 	state = EntryState.REST
 
@@ -40,7 +43,8 @@ func activate() -> void:
 	
 	in_progress_timer.start()
 	# Change to yellow
-	color_polygon.modulate = Color(1, 1, 0, 1)
+	color_polygon.modulate = Color(0.3, 0, 0.125, 1)
+	mom_sprite.modulate.a = 0.4
 	# Play progress sfx
 	in_progress_sfx.play()
 
@@ -49,6 +53,7 @@ func _on_in_progress_timer_timeout() -> void:
 	state = EntryState.ACTIVE
 	active_timer.start()
 	color_polygon.modulate = Color(1, 0, 0, 1)
+	mom_sprite.modulate.a = 1
 	became_active.emit()
 	
 	# Play active sfx
@@ -60,6 +65,7 @@ func _on_in_progress_timer_timeout() -> void:
 # Switch to rest state
 func _on_active_timer_timeout() -> void:
 	state = EntryState.REST
-	color_polygon.modulate = Color(1, 1, 1, 1)
+	color_polygon.modulate = Color(0.01, 0.01, 0.3, 1)
+	mom_sprite.modulate.a = 0
 	returned_to_rest.emit()
 	
