@@ -12,8 +12,8 @@ signal returned_to_rest
 # Signal to tell manager this entry is active
 signal became_active
 
-var in_progress_min : float = 1.0
-var in_progress_max : float = 4.0
+var in_progress_min : float = 0.5
+var in_progress_max : float = 3.5
 var active_min : float = 2.0
 var active_max : float = 3.0
 
