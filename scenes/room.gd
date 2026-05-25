@@ -27,4 +27,4 @@ func check_caught_condition() -> void:
 		if has_lost:
 			return
 		has_lost = true
-		GameManager.trigger_loss_condition()
+		GameManager.trigger_lose_condition()
