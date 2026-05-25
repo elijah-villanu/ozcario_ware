@@ -25,7 +25,7 @@ offset_bottom = 78.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 200
-text = "IM NOT PLAYING"
+text = "IM NOT PLAYING."
 horizontal_alignment = 1
 uppercase = true
 

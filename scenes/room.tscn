@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://unhrmxw2w4tn"]
 
-[ext_resource type="Script" path="res://scenes/room.gd" id="1_14vil"]
+[ext_resource type="Script" uid="uid://fksxjcw1ein4" path="res://scenes/room.gd" id="1_14vil"]
 [ext_resource type="Script" uid="uid://dc4fo7rxngd0c" path="res://scenes/mommy_manager.gd" id="2_jxe34"]
 [ext_resource type="PackedScene" uid="uid://ruoxlfv1tyy5" path="res://scenes/entry.tscn" id="3_jn645"]
 [ext_resource type="PackedScene" uid="uid://dne0hp0vm7enm" path="res://scenes/minigame_screen.tscn" id="4_qvc4m"]
@@ -12,20 +12,20 @@ script = ExtResource("1_14vil")
 script = ExtResource("2_jxe34")
 
 [node name="Entry" parent="MommyManager" unique_id=1289154615 instance=ExtResource("3_jn645")]
-position = Vector2(-913, -320)
-scale = Vector2(100, 100)
+position = Vector2(-931, -215.00003)
+scale = Vector2(150, 150)
 
 [node name="Entry2" parent="MommyManager" unique_id=281864406 instance=ExtResource("3_jn645")]
-position = Vector2(690, -329)
-scale = Vector2(100, 100)
+position = Vector2(640, -215)
+scale = Vector2(150, 150)
 
 [node name="Entry3" parent="MommyManager" unique_id=1371570023 instance=ExtResource("3_jn645")]
-position = Vector2(686, -48)
-scale = Vector2(100, 100)
+position = Vector2(640, 150)
+scale = Vector2(150, 150)
 
 [node name="Entry4" parent="MommyManager" unique_id=190109242 instance=ExtResource("3_jn645")]
-position = Vector2(-928, -40)
-scale = Vector2(100, 100)
+position = Vector2(-931, 150)
+scale = Vector2(150, 150)
 
 [node name="MinigameScreen" parent="." unique_id=406268312 instance=ExtResource("4_qvc4m")]
 position = Vector2(12.0000305, 71)
